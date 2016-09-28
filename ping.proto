@@ -1,0 +1,13 @@
+syntax = "proto3";
+package de.events.ping;
+option go_package = "ping";
+
+message Ping {
+    int32 event_id = 1;
+    string ping_to = 2;
+}
+
+message Pong {
+    int32 event_id = 1;
+    string pong_from = 2;
+}
