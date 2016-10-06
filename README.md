@@ -16,5 +16,11 @@ The protocol buffer definitions for DE events.
 
 ```protoc -I=. --go_out=<go-events-repo>/ping ping.proto```
 
-Then commit and push the generated code into the go-ping repo. Substitute your own
+Then commit and push the generated code into the go-events repo. Substitute your own
 directory when applicable.
+
+#### Java
+
+```protoc -I=. --java_out=<java-events-repo>/src/java ping.proto```
+
+Then commit and push the generated code into the java-events repo.
