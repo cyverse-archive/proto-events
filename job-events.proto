@@ -4,7 +4,7 @@ package de.events.jobs;
 option go_package = "jobevents";
 
 option java_package = "org.cyverse.events.jobs";
-option java_outer_classname = "JobMessages";
+option java_outer_classname = "JobEvents";
 
 message JobEvent {
     int32 event_id      = 1;
