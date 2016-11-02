@@ -12,7 +12,7 @@ message JobEvent {
     string service_name = 3;
     string host         = 4; // hostname or ip address
     string app_id       = 5;
-    string job_id       = 6; // id assigned by the DE
+    required string job_id   = 6; // id assigned by the DE
     string job_state    = 7; // only useful for events related to job status updates.
     string executor_id  = 8; // id assigned by the execution platform (i.e. HTCondor)
     string user         = 9; // preferably either email address or username.
