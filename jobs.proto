@@ -1,0 +1,49 @@
+syntax = "proto3";
+package de.jobs;
+
+option go_package = "jobs";
+
+option java_package = "org.cyverse.jobs";
+option java_outer_classname = "Jobs";
+
+enum Platform {
+    Condor = 0;
+    AGAVE  = 1;
+}
+
+message Job {
+    required string job_id     = 1;
+    string name                = 1;
+    string output_dir          = 1;
+}
+
+message CmdJobSubmit {
+    required string job_id     = 1;
+    required Platform platform = 2;
+}
+
+message CmdStepLaunch {
+    required string step_id    = 1;
+    required Platform platform = 2;
+}
+message CmdJobStop {
+    required string job_id     = 1;
+    required Platform platform = 2;
+}
+
+message CmdStepStop {
+    required string step_id    = 1;
+    required Platform platform = 2;
+}
+
+message JobUpdate {
+    required string job_id     = 6; // id assigned by the DE
+    int64 timestamp            = 10; // should be a milliseconds since the epoch
+}
+
+message StepUpdate {
+    required string step_id    = 6; // id assigned by the DE
+    string user_id             = 9; // preferably either email address or username.
+    int64 timestamp            = 10; // should be a milliseconds since the epoch
+}
+
