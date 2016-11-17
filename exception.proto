@@ -1,0 +1,64 @@
+syntax = "proto3"
+package de.events.exception;
+
+option go_package = "exceptions"
+
+option java_package = "org.cyverse.exceptions"
+option java_outer_classname = "ExceptionMessage"
+
+enum ErrorCodes {
+  ERR_UNCHECKED_EXCEPTION                = 0;
+  ERR_DOES_NOT_EXIST                     = 1;
+  ERR_EXISTS                             = 2;
+  ERR_NOT_WRITEABLE                      = 3;
+  ERR_NOT_READABLE                       = 4;
+  ERR_WRITEABLE                          = 5;
+  ERR_READABLE                           = 6;
+  ERR_NOT_A_USER                         = 7;
+  ERR_NOT_A_FILE                         = 8;
+  ERR_NOT_A_FOLDER                       = 9;
+  ERR_IS_A_FILE                          = 10;
+  ERR_IS_A_FOLDER                        = 11;
+  ERR_INVALID_JSON                       = 12;
+  ERR_BAD_OR_MISSING_FIELD               = 13;
+  ERR_NOT_AUTHORIZED                     = 14;
+  ERR_MISSING_QUERY_PARAMETER            = 15;
+  ERR_MISSING_FORM_FIELD                 = 16;
+  ERR_BAD_QUERY_PARAMETER                = 17;
+  ERR_INCOMPLETE_DELETION                = 18;
+  ERR_INCOMPLETE_MOVE                    = 19;
+  ERR_INCOMPLETE_RENAME                  = 21;
+  ERR_REQUEST_FAILED                     = 22;
+  ERR_NOT_OWNER                          = 23;
+  ERR_FORBIDDEN                          = 24;
+  ERR_INVALID_COPY                       = 25;
+  ERR_INVALID_URL                        = 26;
+  ERR_TICKET_EXISTS                      = 27;
+  ERR_TICKET_DOES_NOT_EXIST              = 28;
+  ERR_MISSING_DEPENDENCY                 = 29;
+  ERR_CONFIG_INVALID                     = 30;
+  ERR_ILLEGAL_ARGUMENT                   = 31;
+  ERR_BAD_REQUEST                        = 32;
+  ERR_NOT_FOUND                          = 33;
+  ERR_NOT_UNIQUE                         = 34;
+  ERR_UNAVAILABLE                        = 35;
+  ERR_TOO_MANY_RESULTS                   = 36;
+  ERR_TEMPORARILY_MOVED                  = 37;
+  ERR_REQUEST_BODY_TOO_LARGE             = 38;
+  ERR_CONFLICTING_QUERY_PARAMETER_VALUES = 39;
+  ERR_SCHEMA_VALIDATION                  = 40;
+}
+
+message ExceptionMessage {
+  ErrorCodes error_code       = 1;
+  string source               = 2; // The service/agent where the exception was generated. 
+  string instance             = 3;
+  string reason               = 4;
+  string endpoint             = 5;
+  string user_id              = 6;
+  int64 timestamp             = 10; // ms since the epoch
+  string stack_trace          = 16;
+  google.protobuf.Any context = 20;
+
+
+}

@@ -24,3 +24,10 @@ directory when applicable.
 ```protoc -I=. --java_out=<java-events-repo>/src/java ping.proto```
 
 Then commit and push the generated code into the java-events repo.
+
+## Message Design
+```
+message [MSG_NAME] {
+
+    int64 timestamp = 10; // ms since the epoch
+}
