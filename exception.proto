@@ -1,10 +1,10 @@
 syntax = "proto3"
-package de.events.exception;
+package de.exception;
 
-option go_package = "exceptions"
+option go_package = "exception"
 
 option java_package = "org.cyverse.exceptions"
-option java_outer_classname = "ExceptionMessage"
+option java_outer_classname = "ExceptionMessage" // Needed to disambiguate from java.lang.Exception
 
 enum ErrorCodes {
   ERR_UNCHECKED_EXCEPTION                = 0;
@@ -49,7 +49,7 @@ enum ErrorCodes {
   ERR_SCHEMA_VALIDATION                  = 40;
 }
 
-message ExceptionMessage {
+message Exception {
   ErrorCodes error_code       = 1;
   string source               = 2; // The service/agent where the exception was generated. 
   string instance             = 3;
