@@ -1,7 +1,7 @@
 syntax = "proto3"
-package de.exception;
+package de.exceptions;
 
-option go_package = "exception"
+option go_package = "exceptions"
 
 option java_package = "org.cyverse.exceptions"
 option java_outer_classname = "ExceptionMessage" // Needed to disambiguate from java.lang.Exception
